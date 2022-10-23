@@ -121,8 +121,10 @@ spring:
   mail:
     host: smtp.qq.com
     port: 465
-    username: lear_yd@qq.com
-    password: qtuyeeblmpvcbghh
+#    # 假信息，根据需要修改
+#    username: test4@qq.com
+#    # 假信息，根据需要修改
+#    password: test
     default-encoding: UTF-8
     properties:
       mail:
@@ -130,10 +132,7 @@ spring:
           ssl:
             enable: true
 #    host: smtp.qq.com
-#    # 假信息，根据需要修改
-#    username: test4@qq.com
-#    # 假信息，根据需要修改
-#    password: test
+
 mybatis:
   #    type-aliases-package: com.lczyfz.entity
   mapper-locations: classpath*:mapper/*.xml
