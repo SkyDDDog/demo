@@ -1,4 +1,4 @@
-package com.lyd.demo.config;
+package com.lczyfz.demo.config;
 
 import cn.hutool.core.util.StrUtil;
 import com.google.common.base.Predicate;
@@ -57,7 +57,7 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Demo")
+                .title("Eep-Demo-SpringBoot")
                 .description("Springboot基础开发工程swagger-api文档")
                 .termsOfServiceUrl("https://www.jianshu.com/u/9ea571de7752")
                 .version("1.0")

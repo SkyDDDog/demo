@@ -1,7 +1,5 @@
-package com.lyd.demo.interceptor;
+package com.lczyfz.demo.interceptor;
 
-import com.lczyfz.edp.springboot.core.utils.DateUtils;
-import com.lczyfz.edp.springboot.sys.utils.LogUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.NamedThreadLocal;
@@ -38,17 +36,17 @@ public class LogInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
         // 保存日志
-        LogUtils.saveLog(request, handler, ex, "暂无匹配菜单");
+//        LogUtils.saveLog(request, handler, ex, "暂无匹配菜单");
 
         response.setHeader("requestTime", "s123123123");
         // 打印JVM信息。
         if (logger.isDebugEnabled()) {
             long beginTime = startTimeThreadLocal.get();//得到线程绑定的局部变量（开始时间）
             long endTime = System.currentTimeMillis();    //2、结束时间
-            logger.debug("计时结束：{}  耗时：{}  URI: {}  最大内存: {}m  已分配内存: {}m  已分配内存中的剩余空间: {}m  最大可用内存: {}m",
-                    new SimpleDateFormat("hh:mm:ss.SSS").format(endTime), DateUtils.formatDateTime(endTime - beginTime),
-                    request.getRequestURI(), Runtime.getRuntime().maxMemory() / 1024 / 1024, Runtime.getRuntime().totalMemory() / 1024 / 1024, Runtime.getRuntime().freeMemory() / 1024 / 1024,
-                    (Runtime.getRuntime().maxMemory() - Runtime.getRuntime().totalMemory() + Runtime.getRuntime().freeMemory()) / 1024 / 1024);
+//            logger.debug("计时结束：{}  耗时：{}  URI: {}  最大内存: {}m  已分配内存: {}m  已分配内存中的剩余空间: {}m  最大可用内存: {}m",
+//                    new SimpleDateFormat("hh:mm:ss.SSS").format(endTime), DateUtils.formatDateTime(endTime - beginTime),
+//                    request.getRequestURI(), Runtime.getRuntime().maxMemory() / 1024 / 1024, Runtime.getRuntime().totalMemory() / 1024 / 1024, Runtime.getRuntime().freeMemory() / 1024 / 1024,
+//                    (Runtime.getRuntime().maxMemory() - Runtime.getRuntime().totalMemory() + Runtime.getRuntime().freeMemory()) / 1024 / 1024);
             //删除线程变量中的数据，防止内存泄漏
             startTimeThreadLocal.remove();
         }

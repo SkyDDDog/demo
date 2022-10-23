@@ -1,4 +1,4 @@
-package com.lyd.demo.config;
+package com.lczyfz.demo.config;
 
 import com.lczyfz.edp.springboot.core.entity.User;
 import org.ehcache.CacheManager;
@@ -39,7 +39,7 @@ public class CacheConfig {
 //        cacheManager = CacheManagerBuilder.newCacheManager(new XmlConfiguration(getClass().getResource("/cache/ehcache-jsr107.xml")));
 
         PersistentCacheManager persistentCacheManager = CacheManagerBuilder.newCacheManagerBuilder()
-                .with(CacheManagerBuilder.persistence(new File("../temp/demo", "ehcache")))
+                .with(CacheManagerBuilder.persistence(new File("../temp/edp_demo", "ehcache")))
                 .withCache("sysCache",
                         CacheConfigurationBuilder.newCacheConfigurationBuilder(String.class, HashMap.class,
                                 ResourcePoolsBuilder.newResourcePoolsBuilder()

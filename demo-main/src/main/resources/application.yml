@@ -30,9 +30,12 @@ spring:
     #连接池配置
     ## 初始化大小，最小，最大
     druid:
-      url: jdbc:mysql://192.168.101.14:3306/edp_demo?useUnicode=true&characterEncoding=utf-8
-      username: edp_demo
-      password: edp_demo
+#      url: jdbc:mysql://192.168.101.14:3306/edp_demo?useUnicode=true&characterEncoding=utf-8
+#      username: edp_demo
+#      password: edp_demo
+      url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 9738faq
       driver-class-name: com.mysql.jdbc.Driver
       initial-size: 3
       max-active: 100
@@ -101,6 +104,36 @@ spring:
 
 #  thymeleaf:
 #    prefix: classpath:/
+  redis:
+    host: 192.168.101.33
+    #    host: 192.168.1.220
+    port: 6379
+    database: 9
+    password: 1234567
+    jedis:
+      pool:
+        max-active: 16
+        max-idle: 16
+        min-idle: 2
+        max-wait: -1
+    timeout: 6000
+
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: lear_yd@qq.com
+    password: qtuyeeblmpvcbghh
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+#    host: smtp.qq.com
+#    # 假信息，根据需要修改
+#    username: test4@qq.com
+#    # 假信息，根据需要修改
+#    password: test
 mybatis:
   #    type-aliases-package: com.lczyfz.entity
   mapper-locations: classpath*:mapper/*.xml
@@ -109,3 +142,43 @@ logging:
   level:
     com.lczyfz : debug
 spring.activiti.check-process-definitions: false
+
+edp:
+  base:
+    # jwt密钥
+    jwt-secret: MjgxMGE2MWItMTM5My00ODAxLWFjY2YtZGE3OTRhZDk4ZjdjMDA1ZWY5ZGQtMzczMy00NGU3LTkyMWYtYWRmMGM5YjNlMzlh
+    # jwt类型
+    jwt-type: simple
+    # token过期时间
+    ttl-millis-access: 1209600000
+    # refresh token过期时间
+    ttl-millis-refresh: 86400000
+    # 授权认证
+    authorization: false
+    # 授权项目名
+    authorization-project-name: linked-big-data
+    # 授权文件位置
+    authorization-position: /usr/local/encoder.txt
+    # 验证码开关
+    validate-code: false
+    # 密码有效期认证开关
+    validity: false
+    # 密码有效期时长
+    validity-date: 30
+    # 开启密码强度验证
+    password-strength: true
+
+file:
+  # 禁止上传的文件类型扩展名
+  forbidden-extension: exe, php, dll, jsp, js, bat, py, vbs, htm
+  typeAliases:
+    # 创建Bean时会根据此表额外生成others与all两个分类
+    # 文件分类: 匹配文件contentType的正则表达式
+    word: vnd.openxmlformats-officedocument.wordprocessingml.document|msword
+    excel: vnd.openxmlformats-officedocument.spreadsheetml.sheet|vnd.ms-excel
+    pdf: pdf
+    image: image
+    video: video
+    ppt: vnd.openxmlformats-officedocument.presentationml.template|vnd.ms-powerpoint
+    text: text
+    compressed: zip|7z|tar|rar

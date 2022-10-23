@@ -1,7 +1,8 @@
-package com.lyd.demo.config;
+package com.lczyfz.demo.config;
 
 import com.lczyfz.edp.springboot.sys.shiro.JwtFilter;
 import com.lczyfz.edp.springboot.sys.shiro.JwtRealm;
+import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -145,6 +146,10 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/api/business/jstDataController/**", "jwtFilter");
         filterChainDefinitionMap.put("/api/business/shopActivityAnalysisController/**", "jwtFilter");
 
+        filterChainDefinitionMap.put("/api/exam/user/**", "jwtFilter");
+        filterChainDefinitionMap.put("/api/exam/subject/**", "jwtFilter");
+        filterChainDefinitionMap.put("/api/exam/paper/**", "jwtFilter");
+        filterChainDefinitionMap.put("/api/exam/contest/**", "jwtFilter");
 
 
         //其余接口一律拦截
