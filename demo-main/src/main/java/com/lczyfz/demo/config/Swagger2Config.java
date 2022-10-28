@@ -59,9 +59,9 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("Eep-Demo-SpringBoot")
                 .description("Springboot基础开发工程swagger-api文档")
-                .termsOfServiceUrl("https://www.jianshu.com/u/9ea571de7752")
+                .termsOfServiceUrl("https://github.com/SkyDDDog/demo")
                 .version("1.0")
-                .contact(new Contact("Maple", "https://www.jianshu.com/u/9ea571de7752", "cfqfzu@163.com"))
+                .contact(new Contact("Maple", "https://github.com/SkyDDDog/demo", "362664609@qq.com"))
                 .build();
     }
 }
